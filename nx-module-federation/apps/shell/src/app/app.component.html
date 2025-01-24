@@ -1,6 +1,22 @@
-<ul class="remote-menu">
-  <li><a routerLink="/">Home</a></li>
-  <li><a routerLink="mfe1">Mfe1</a></li>
-  <li><a routerLink="mfe2">Mfe2</a></li>
-</ul>
-<router-outlet></router-outlet>
+<!--<ul class="remote-menu">-->
+<!--  <li><a routerLink="/">Home</a></li>-->
+<!--  <li><a routerLink="mfe1">Mfe1</a></li>-->
+<!--  <li><a routerLink="mfe2">Mfe2</a></li>-->
+<!--</ul>-->
+<!--<router-outlet></router-outlet>-->
+
+<div style="border: 3px dashed blue; padding: 16px">
+  <small style="color: blue">Shell (:4200)</small>
+  <h1>Fourier-App</h1>
+
+  <div class="container">
+    <div style="border: 3px dashed red">
+      <small style="color: red">MFE1 (:4201)</small>
+      <div #dynamicMFE1ComponentContainer></div>
+    </div>
+    <div style="border: 3px dashed green">
+      <small style="color: green">MFE2 (:4202)</small>
+      <div #dynamicMFE2ComponentContainer></div>
+    </div>
+  </div>
+</div>

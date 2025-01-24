@@ -15,8 +15,11 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@nx-module-federation/data": ["libs/shared/data/src/index.ts"],
+      "mfe1/Component": ["apps/mfe1/src/app/remote-entry/entry.component.ts"],
       "mfe1/Routes": ["apps/mfe1/src/app/remote-entry/entry.routes.ts"],
-      "mfe2/Routes": ["apps/mfe2/src/app/remote-entry/entry.routes.ts"],
+      "mfe2/Component": ["apps/mfe2/src/app/remote-entry/entry.component.ts"],
+      "mfe2/Routes": ["apps/mfe2/src/app/remote-entry/entry.routes.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
