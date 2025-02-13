@@ -6,6 +6,11 @@ const config: ModuleFederationConfig = {
     './Routes': 'apps/mfe2/src/app/remote-entry/entry.routes.ts',
     './Component': 'apps/mfe2/src/app/remote-entry/entry.component.ts',
   },
+  // shared: (libraryName, sharedConfig) => {
+  //   if (libraryName === '@nx-module-federation/data') {
+  //     return { singleton: true, eager: false };
+  //   }
+  // },
 };
 
 /**

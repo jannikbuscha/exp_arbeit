@@ -2,7 +2,23 @@
   "name": "@nx-module-federation/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "shell:build:prod:stats": "nx build shell --prod --skip-nx-cache -- --statsJson",
+    "shell:build:dev:stats": "nx build shell --skip-nx-cache -- --statsJson",
+    "analyze:prod:stats": "run-s \"shell:build:prod:stats\" \"wba-shell\"",
+    "analyze:dev:stats": "run-s \"shell:build:dev:stats\" \"wba-shell\"",
+    "mfe1:build:prod:stats": "nx build mfe1 --prod --skip-nx-cache -- --statsJson",
+    "mfe1:build:dev:stats": "nx build mfe1 --skip-nx-cache -- --statsJson",
+    "analyze-mfe1:prod:stats": "run-s \"wba-mfe1\"",
+    "analyze-mfe1:dev:stats": "run-s \"wba-mfe1\"",
+    "mfe2:build:prod:stats": "nx build mfe2 --prod --skip-nx-cache -- --statsJson",
+    "mfe2:build:dev:stats": "nx build mfe2 --skip-nx-cache -- --statsJson",
+    "analyze-mfe2:prod:stats": "run-s \"wba-mfe2\"",
+    "analyze-mfe2:dev:stats": "run-s \"wba-mfe2\"",
+    "wba-shell": "webpack-bundle-analyzer dist/apps/shell/stats.json",
+    "wba-mfe1": "webpack-bundle-analyzer dist/apps/mfe1/stats.json",
+    "wba-mfe2": "webpack-bundle-analyzer dist/apps/mfe2/stats.json"
+  },
   "private": true,
   "devDependencies": {
     "@angular-devkit/build-angular": "~19.0.0",
@@ -28,11 +44,13 @@
     "angular-eslint": "^19.0.2",
     "eslint": "^9.8.0",
     "eslint-config-prettier": "^9.0.0",
+    "npm-run-all": "^4.1.5",
     "nx": "20.3.2",
     "prettier": "^2.6.2",
     "tslib": "^2.3.0",
     "typescript": "~5.6.2",
-    "typescript-eslint": "^8.13.0"
+    "typescript-eslint": "^8.13.0",
+    "webpack-bundle-analyzer": "^4.10.2"
   },
   "dependencies": {
     "@angular/animations": "~19.0.0",
@@ -43,8 +61,10 @@
     "@angular/platform-browser": "~19.0.0",
     "@angular/platform-browser-dynamic": "~19.0.0",
     "@angular/router": "~19.0.0",
+    "@nx/angular": "^20.3.2",
+    "chart.js": "^4.4.7",
+    "ng2-charts": "^8.0.0",
     "rxjs": "~7.8.0",
-    "zone.js": "~0.15.0",
-    "@nx/angular": "^20.3.2"
+    "zone.js": "~0.15.0"
   }
 }

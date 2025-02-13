@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild, Injector, ViewContainerRef} from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {loadRemote} from '@module-federation/enhanced/runtime';
+import {SharedDataService} from "@nx-module-federation/data";
 
 @Component({
   imports: [RouterModule],
@@ -16,7 +17,10 @@ export class AppComponent implements OnInit {
   @ViewChild('dynamicMFE2ComponentContainer', { read: ViewContainerRef, static: true })
   mfe2Container!: ViewContainerRef;
 
+  isDataAvailable = false; // Status für den Button
+
   // constructor(private injector: Injector) {}
+  constructor(private sharedDataService: SharedDataService) {}
 
   async ngOnInit() {
     // Load dynamic remote component
@@ -38,5 +42,16 @@ export class AppComponent implements OnInit {
     // Change detection
     mfe1Ref.changeDetectorRef.detectChanges();
     mfe2Ref.changeDetectorRef.detectChanges();
+
+    // Überwache die Datenverfügbarkeit
+    this.sharedDataService.getData().subscribe(data => {
+      this.isDataAvailable = data.length > 0;
+    });
+  }
+
+  triggerCalculation(): void {
+    if (this.isDataAvailable) {
+      this.sharedDataService.triggerCalculation(); // Trigger auslösen
+    }
   }
 }

@@ -1,8 +1,23 @@
-.container {
+.shell {
+  border: 3px dashed blue;
+  padding: 16px;
   display: flex;
-  gap: 16px;
+  flex-direction: column;
 
-  > div {
-    width: 100%;
+  .container {
+    display: flex;
+    gap: 16px;
+
+    > div {
+      width: 100%;
+    }
+  }
+
+  button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    width: fit-content;
+    margin: 20px auto 0;
   }
 }

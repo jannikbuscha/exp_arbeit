@@ -15,6 +15,11 @@ const config: ModuleFederationConfig = {
    *
    */
   remotes: [],
+  // shared: (libraryName, sharedConfig) => {
+  //   if (libraryName === '@nx-module-federation/data') {
+  //     return { singleton: true, eager: false };
+  //   }
+  // },
 };
 
 /**
